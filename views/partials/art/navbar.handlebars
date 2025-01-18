@@ -1,0 +1,195 @@
+<div class="uk-navbar-toggle-icon" class="nav">
+        <nav class="uk-navbar" uk-navbar="mode: click">
+            <div id="navi" class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li><a class="nav" href="/">Biography</a></li>
+                    <li>
+                        <a href="#">Tables</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                {{#each navStyles.Style}}
+                                <li>
+                                    <a class="Tables" data-target= "{{this.dataValues.style_name}}">{{this.dataValues.style_name}}</a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Links</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                {{#each navArtists.Artist}}
+                                <li>
+                                    <a class="artist" data-name= "{{this.dataValues.artist_name}}">{{this.dataValues.artist_name}}</a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/exhibitions">EXHIBITIONS</a></li>
+                    <!-- <li><a href="#">CONTACT</a></li> -->
+                    <li><a href="/about">ABOUT</a></li>
+                    <!-- <li><a href="login.html">LOGIN</a></li> -->
+                    <button class="uk-button uk-button-text" type="button"
+                        uk-toggle="target: #offcanvas-reveal">Management</button>
+                </ul>
+            </div>
+
+
+            <div class="uk-navbar-nav" id="sidenav" uk-offcanvas="flip:true" class="uk-offcanvas">
+                <div class="uk-offcanvas-bar">
+                    <ul class="uk-list " id="sidenavlist">
+
+                        <li><a class="nav" href="/">Biography</a></li>
+                        <li>
+                            <a href="#" uk-toggle="target: #offcanvas-reveal-Tables">Tables</a>
+                        </li>
+                        <li><a href="#" uk-toggle="target: #offcanvas-reveal-artist">Artist</a>
+                
+                        </li>
+                        <li><a href="/exhibitions">Exhibitions</a></li>
+                        <li><a href="/about">About</a></li>
+                        <button class="uk-button uk-button-text login-header" type="button"
+                            uk-toggle="target: #offcanvas-reveal">Login</button>
+                    </ul>
+                </div>
+            </div>
+            <div class="uk-navbar-right">
+
+                <a id="sidebartoggle" class="uk-navbar-toggle uk-navbar-right" uk-toggle="target: #sidenav"
+                    uk-navbar-toggle-icon href="#"></a>
+            </div>
+        </nav>
+        <div id="offcanvas-reveal-artist" uk-offcanvas="mode: reveal; overlay: true ;flip:true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <div class="form" class="uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match" uk-grid>
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                {{#each navArtists.Artist}}
+                                <li>
+                                    <a class="artist" data-name= "{{this.dataValues.artist_name}}">{{this.dataValues.artist_name}}</a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                </div>
+
+            </div>
+        </div>
+        <div id="offcanvas-reveal-Tables" uk-offcanvas="mode: reveal; overlay: true ;flip:true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <div class="form" class="uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match" uk-grid>
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                {{#each navStyles.Style}}
+                                <li>
+                                    <a class="Tables" data-target= "{{this.dataValues.style_name}}">{{this.dataValues.style_name}}</a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="offcanvas-reveal" uk-offcanvas="mode: reveal; overlay: true ;flip:true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <div class="form" class="uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match" uk-grid>
+                    <div id="form">
+
+                        <form class="login formtwo">
+
+                            <div class="uk-margin">
+                                <div class="uk-inline">
+                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                    <input class="uk-input" id="email-verify" type="email" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div class="uk-margin">
+                                <div class="uk-inline">
+                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                    <input class="uk-input" type="password" id="password-verify" placeholder="Password" >
+                                </div>
+                            </div>
+                            
+                            <p uk-margin>
+                                <button type="submit" class="uk-button uk-button-default uk-button-small">Login</button>
+                            <p id="signup-option">or Sign Up <a href="" uk-toggle="target: #offcanvas-reveal-login">Here</a></p>
+                            </p>
+                        </form>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="offcanvas-reveal-login" uk-offcanvas="mode: reveal; overlay: true ;flip:true" id="loginposition">
+            <div class="uk-offcanvas-bar ">
+
+                <form class="signup">
+
+                    <div class="uk-margin">
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            <input class="uk-input" id="email-input" type="email" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        <div class="uk-inline">
+                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                            <input class="uk-input" type="password" id="password-input" placeholder="Password" >
+                        </div>
+                    </div>
+                    
+                    <p uk-margin>
+                        <button type="submit" class="uk-button uk-button-default uk-button-small" uk-toggle="target: #offcanvas-reveal-login">Sign Up</button>
+                    <p>or Login <a href="" class="login-option" uk-toggle="target: #offcanvas-reveal-login">Here</a></p>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+        <div id="offcanvas-reveal-signup" uk-offcanvas="mode: reveal; overlay: true ;flip:true">
+            <div class="uk-offcanvas-bar">
+
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <div class="form" class="uk-child-width-1-2 uk-child-width-1-4@s uk-grid-match" uk-grid>
+                    <div id="form">
+
+                        <form class="login formtwo">
+
+                            <div class="uk-margin">
+                                <div class="uk-inline">
+                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                    <input class="uk-input" id="email-verify" type="email" placeholder="Email">
+                                </div>
+                            </div>
+
+                            <div class="uk-margin">
+                                <div class="uk-inline">
+                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                    <input class="uk-input" type="password" id="password-verify" placeholder="Password" >
+                                </div>
+                            </div>
+                            
+                            <p uk-margin>
+                                <button type="submit" class="uk-button uk-button-default uk-button-small">Login</button>
+                            <p class="signup-option">or Sign Up <a href="" uk-toggle="target: #offcanvas-reveal-signup">Here</a></p>
+                            </p>
+                        </form>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <img src="../images/elgrecologo.jpg" class="galleryname">
+        <br><br>
+</div>
